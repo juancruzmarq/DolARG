@@ -12,6 +12,10 @@ html body {
   background-color: #cfe1b9;
 }
 
+.popup-content {
+  background-color: black;
+}
+
 /* Get the preferences from the dark mode media query */
 @media (prefers-color-scheme: dark) {
   html body {
