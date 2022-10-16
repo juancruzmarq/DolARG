@@ -10,6 +10,10 @@ export type CotizacionesType = {
     turista: CotizacionType;
     promedio: CotizacionType;
     liqui: CotizacionType;
+    bbva: CotizacionType;
+    piano: CotizacionType;
+    hipotecario: CotizacionType;
+    santander: CotizacionType;
   };
 };
 
@@ -40,7 +44,7 @@ function Cotizaciones({ cotizaciones }: Props) {
         </div>
       </div>
 
-      <div className="grid m-4 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      <div className="grid m-4 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 items-center justify-center place-items-center">
         <Cotizacion
           nombre="Blue"
           cotizacion={cotizaciones?.cotizaciones?.blue}
@@ -60,6 +64,18 @@ function Cotizaciones({ cotizaciones }: Props) {
         <Cotizacion
           nombre="Contado Liqui"
           cotizacion={cotizaciones?.cotizaciones?.liqui}
+        />
+        <Cotizacion
+          nombre="BBVA"
+          cotizacion={cotizaciones?.cotizaciones?.bbva}
+        />
+        <Cotizacion
+          nombre="Piano"
+          cotizacion={cotizaciones?.cotizaciones?.piano}
+        />
+        <Cotizacion
+          nombre="Hipotecario"
+          cotizacion={cotizaciones?.cotizaciones?.hipotecario}
         />
       </div>
     </div>

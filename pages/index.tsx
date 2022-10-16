@@ -58,6 +58,26 @@ export async function getStaticProps() {
   );
   const liqui = await res6.json();
 
+  const res7 = await fetch(
+    "https://api-dolar-argentina.herokuapp.com/api/bbva"
+  );
+  const bbva = await res7.json();
+
+  const res8 = await fetch(
+    "https://api-dolar-argentina.herokuapp.com/api/piano"
+  );
+  const piano = await res8.json();
+
+  const res9 = await fetch(
+    "https://api-dolar-argentina.herokuapp.com/api/hipotecario"
+  );
+  const hipotecario = await res9.json();
+
+  const res10 = await fetch(
+    "https://api-dolar-argentina.herokuapp.com/api/santander"
+  );
+  const santander = await res10.json();
+
   const cotizaciones = {
     oficial,
     blue,
@@ -65,6 +85,10 @@ export async function getStaticProps() {
     turista,
     promedio,
     liqui,
+    bbva,
+    piano,
+    hipotecario,
+    santander,
   };
   console.log(cotizaciones);
   return {
