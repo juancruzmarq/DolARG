@@ -6,6 +6,7 @@ import "reactjs-popup/dist/index.css";
 
 import TimeAgo from "timeago-react";
 import Calculadora from "./Calculadora";
+import { BsBank } from "react-icons/bs";
 
 export type CotizacionType = {
   compra: string | undefined;
@@ -16,19 +17,27 @@ export type CotizacionType = {
 type Props = {
   nombre: string;
   cotizacion?: CotizacionType;
+  banco?: Boolean;
 };
 
-function Cotizacion({ nombre, cotizacion }: Props) {
+function Cotizacion({ nombre, cotizacion, banco }: Props) {
   let hora = moment(cotizacion?.fecha?.split(" ")[0].split(":")[0], "hh:mm:ss");
   hora = hora.subtract(3, "hours");
   let fecha = cotizacion?.fecha?.split(" ")[0];
   let fechaHora = fecha + " " + hora;
   return (
     <div className="grid grid-rows-3 grid-flow-col bg-gradient-to-t opacity-90 hover:opacity-100 drop-shadow-2xl from-[#718355] to-[#87986A] h-[150px] rounded-2xl items-center justify-center sm:w-[240px] m-2 transform transition duration-500 hover:scale-110">
-      <div className="items-center justify-center m-3 mb-4 border-b-2 border-b-[#b5bfa3]">
-        <h1 className="text-center text-lg sm:text-3xl text-white font-bold">
-          {nombre}
-        </h1>
+      <div className="flex items-center  m-3 mb-4 border-b-2 border-b-[#b5bfa3]">
+        {banco ? (
+          <BsBank className="text-md text-center justify-center text-white" />
+        ) : (
+          false
+        )}
+        <div className="text-center justify-center mx-auto">
+          <h1 className="text-center justify-center text-lg sm:text-3xl text-white font-bold mr-3">
+            {nombre}
+          </h1>
+        </div>
       </div>
       <div className="grid grid-cols-2 grid-rows-2 items-center justify-center ">
         <h1 className="text-center mx-3 text-white ">Compra</h1>

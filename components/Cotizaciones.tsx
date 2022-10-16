@@ -123,46 +123,57 @@ function Cotizaciones({ cotizaciones }: Props) {
         <Cotizacion
           nombre="BBVA"
           cotizacion={cotizaciones?.cotizaciones?.bbva}
+          banco={true}
         />
         <Cotizacion
           nombre="Piano"
           cotizacion={cotizaciones?.cotizaciones?.piano}
+          banco={true}
         />
         <Cotizacion
           nombre="Hipotecario"
           cotizacion={cotizaciones?.cotizaciones?.hipotecario}
+          banco={true}
         />
         <Cotizacion
           nombre="Ciudad"
           cotizacion={cotizaciones?.cotizaciones?.ciudad}
+          banco={true}
         />
         <Cotizacion
           nombre="Patagonia"
           cotizacion={cotizaciones?.cotizaciones?.patagonia}
+          banco={true}
         />
         <Cotizacion
           nombre="Supervielle"
           cotizacion={cotizaciones?.cotizaciones?.supervielle}
+          banco={true}
         />
         <Cotizacion
           nombre="Galicia"
           cotizacion={cotizaciones?.cotizaciones?.galicia}
+          banco={true}
         />
         <Cotizacion
           nombre="Nacion"
           cotizacion={cotizaciones?.cotizaciones?.nacion}
+          banco={true}
         />
         <Cotizacion
           nombre="Bancor"
           cotizacion={cotizaciones?.cotizaciones?.bancor}
+          banco={true}
         />
         <Cotizacion
           nombre="Comafi"
           cotizacion={cotizaciones?.cotizaciones?.comafi}
+          banco={true}
         />
         <Cotizacion
           nombre="Chaco"
           cotizacion={cotizaciones?.cotizaciones?.chaco}
+          banco={true}
         />
       </div>
     </div>
