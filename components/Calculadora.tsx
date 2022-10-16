@@ -1,27 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
+import { CotizacionType } from "./Cotizacion";
 
-type Props = {};
+type Props = {
+  cotizacion?: CotizacionType;
+};
 
-const Calculadora = (props: Props) => {
+const Calculadora = ({ cotizacion }: Props) => {
+  const [compra, setCompra] = useState("0");
+  const [venta, setVenta] = useState("0");
+  const [cantidad, setCantidad] = useState(0);
+
+  const handleCompra = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCantidad(Number(e.target.value));
+
+    const compraCurrency = new Intl.NumberFormat("en-ES", {
+      style: "currency",
+      currency: "USD",
+    }).format(Number(e.target.value) / Number(cotizacion?.compra));
+
+    const ventaCurrency = new Intl.NumberFormat("en-ES", {
+      style: "currency",
+      currency: "USD",
+    }).format(Number(e.target.value) / Number(cotizacion?.venta));
+
+    setCompra(compraCurrency);
+    setVenta(ventaCurrency);
+  };
+
   return (
     <div className="grid grid-rows-3 bg-[#333d29] h-[200px] items-center justify-center p-2 bg-gradient-to-t  drop-shadow-2xl from-[#718355] to-[#87986A]">
-      <div className="justify-center items-center ">
+      <div className="justify-center items-center">
         <h1 className="text-white font-semibold text-[13px] text-center mb-1">
           Ingrese monto en pesos
         </h1>
         <input
+          min={0}
           type="text"
           className="bg-[#CFE1B9]/40 text-white rounded-md border-white border-b text-center text-sm outline-none"
+          value={cantidad}
+          onChange={(e) => handleCompra(e)}
         />
       </div>
-      <div className="grid grid-cols-4 justify-center items-center gap-2">
+      <div className="grid grid-cols-4 justify-center items-center gap-2 m-2">
         <h1 className="text-white text-center col-span-1">Compra</h1>
-        <h1 className="text-white text-end font-semibold col-span-3 ">
-          US$21331,0
-        </h1>
+        {cotizacion?.compra !== "No cotiza" ? (
+          <h1 className="text-white text-end font-semibold col-span-3 ">
+            US{compra}
+          </h1>
+        ) : (
+          <h1 className="text-white opacity-50 text-end font-semibold col-span-3 ">
+            {cotizacion?.compra}
+          </h1>
+        )}
+
         <h1 className="text-white text-center col-span-1">Venta</h1>
         <h1 className="text-white text-end font-semibold col-span-3 ml-3">
-          US$23323,0
+          US{venta}
         </h1>
       </div>
       <div className="justify-center items-center">

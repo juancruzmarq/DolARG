@@ -63,7 +63,7 @@ function Cotizacion({ nombre, cotizacion }: Props) {
             }}
             position={["bottom center", "bottom right", "bottom left"]}
           >
-            <Calculadora />
+            <Calculadora cotizacion={cotizacion} />
           </Popup>
         </div>
         <div className="items-center justify-center mx-auto">
