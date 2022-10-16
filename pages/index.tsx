@@ -78,6 +78,47 @@ export async function getStaticProps() {
   );
   const santander = await res10.json();
 
+  const res11 = await fetch(
+    "https://api-dolar-argentina.herokuapp.com/api/ciudad"
+  );
+  const ciudad = await res11.json();
+
+  const res12 = await fetch(
+    "https://api-dolar-argentina.herokuapp.com/api/patagonia"
+  );
+  const patagonia = await res12.json();
+
+  const res13 = await fetch(
+    "https://api-dolar-argentina.herokuapp.com/api/supervielle"
+  );
+  const supervielle = await res13.json();
+
+  const res14 = await fetch(
+    "https://api-dolar-argentina.herokuapp.com/api/galicia"
+  );
+  const galicia = await res14.json();
+
+  const res15 = await fetch(
+    "https://api-dolar-argentina.herokuapp.com/api/nacion"
+  );
+  const nacion = await res15.json();
+
+  const res16 = await fetch(
+    "https://api-dolar-argentina.herokuapp.com/api/bancor"
+  );
+  const bancor = await res16.json();
+
+  const res17 = await fetch(
+    "https://api-dolar-argentina.herokuapp.com/api/comafi"
+  );
+  const comafi = await res17.json();
+
+  const res18 = await fetch(
+    "https://api-dolar-argentina.herokuapp.com/api/chaco"
+  );
+
+  const chaco = await res18.json();
+
   const cotizaciones = {
     oficial,
     blue,
@@ -89,6 +130,14 @@ export async function getStaticProps() {
     piano,
     hipotecario,
     santander,
+    ciudad,
+    patagonia,
+    supervielle,
+    galicia,
+    nacion,
+    bancor,
+    comafi,
+    chaco,
   };
   console.log(cotizaciones);
   return {

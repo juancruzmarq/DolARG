@@ -22,7 +22,7 @@ function Cotizacion({ nombre, cotizacion }: Props) {
   let fechaHora = fecha + " " + hora;
   return (
     <div className="grid grid-rows-3 grid-flow-col bg-gradient-to-t opacity-90 hover:opacity-100 drop-shadow-2xl from-[#718355] to-[#87986A] h-[150px] rounded-2xl items-center justify-center sm:w-[240px] m-2 transform transition duration-500 hover:scale-110">
-      <div className="items-center justify-center m-3 mb-4 ">
+      <div className="items-center justify-center m-3 mb-4 border-b-2 border-b-[#b5bfa3]">
         <h1 className="text-center text-lg sm:text-3xl text-white font-bold">
           {nombre}
         </h1>
@@ -43,12 +43,19 @@ function Cotizacion({ nombre, cotizacion }: Props) {
           ${cotizacion?.venta?.split(".")[0]}
         </h1>
       </div>
-      <div className="items-center justify-center mx-auto">
-        <TimeAgo
-          datetime={fechaHora}
-          locale="es"
-          className="text-center text-sm sm:text-1xl mt-3 text-[#CFE1B9] font-bold"
-        />
+      <div className="grid grid-cols-2 grid-flow-col items-center justify-center">
+        <div className="items-center justify-center mx-auto">
+          <button className="text-center items-center justify-center text-xl text-[#CFE1B9] text-[12px] sm:text-sm mt-1 border-2 rounded-lg px-1 sm:px-2 border-opacity-20 border-[#CFE1B9]">
+            Calcular
+          </button>
+        </div>
+        <div className="items-center justify-center mx-auto">
+          <TimeAgo
+            datetime={fechaHora}
+            locale="es"
+            className="text-center items-center justify-center text-xl text-[#CFE1B9] text-[12px] sm:text-sm"
+          />
+        </div>
       </div>
     </div>
   );

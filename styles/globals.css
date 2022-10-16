@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #cfe1b9;
+}
+
+/* Get the preferences from the dark mode media query */
+@media (prefers-color-scheme: dark) {
+  html body {
+    background: rgb(51, 61, 41);
+    background: linear-gradient(
+      90deg,
+      rgba(51, 61, 41, 1) 0%,
+      rgba(65, 72, 51, 1) 53%,
+      rgba(101, 109, 74, 1) 100%
+    );
+  }
+}
