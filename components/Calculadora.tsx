@@ -21,7 +21,7 @@ const Calculadora = ({ cotizacion }: Props) => {
     const ventaCurrency = new Intl.NumberFormat("en-ES", {
       style: "currency",
       currency: "USD",
-    }).format(Number(e.target.value) / Number(cotizacion?.venta));
+    }).format(Number(e.target.value) * Number(cotizacion?.venta));
 
     setCompra(compraCurrency);
     setVenta(ventaCurrency);
@@ -42,7 +42,7 @@ const Calculadora = ({ cotizacion }: Props) => {
         />
       </div>
       <div className="grid grid-cols-4 justify-center items-center gap-2 m-2">
-        <h1 className="text-white text-center col-span-1">Compra</h1>
+        <h1 className="text-white text-center col-span-1">Compras</h1>
         {cotizacion?.compra !== "No cotiza" ? (
           <h1 className="text-white text-end font-semibold col-span-3 ">
             US{compra}
@@ -53,9 +53,9 @@ const Calculadora = ({ cotizacion }: Props) => {
           </h1>
         )}
 
-        <h1 className="text-white text-center col-span-1">Venta</h1>
+        <h1 className="text-white text-center col-span-1">Vendes</h1>
         <h1 className="text-white text-end font-semibold col-span-3 ml-3">
-          US{venta}
+          {venta}
         </h1>
       </div>
       <div className="justify-center items-center">

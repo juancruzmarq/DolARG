@@ -3,6 +3,9 @@ import React from "react";
 import TimeAgo from "timeago-react";
 import Cotizacion from "./Cotizacion";
 import { CotizacionType } from "./Cotizacion";
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
+import Calculadora from "./Calculadora";
 
 export type CotizacionesType = {
   cotizaciones: {
@@ -67,9 +70,23 @@ function Cotizaciones({ cotizaciones }: Props) {
 
           <div className="grid grid-cols-2 grid-flow-col items-center justify-center">
             <div className="items-center justify-center mx-auto">
-              <button className="text-center items-center justify-center text-1xl text-[#CFE1B9] text-[12px] sm:text-sm mt-1 border-2 rounded-lg px-1 sm:px-2 border-opacity-20 border-[#CFE1B9]">
-                Calcular
-              </button>
+              <Popup
+                trigger={
+                  <button className="text-center items-center justify-center text-xl text-[#CFE1B9] text-[12px] sm:text-sm mt-1 border-2 rounded-lg px-1 sm:px-2 border-opacity-20 border-[#CFE1B9]">
+                    Calcular
+                  </button>
+                }
+                contentStyle={{
+                  background: "#CFE1B9",
+                  border: "none",
+                }}
+                arrowStyle={{
+                  color: "#CFE1B9",
+                }}
+                position={["bottom center", "bottom right", "bottom left"]}
+              >
+                <Calculadora cotizacion={cotizaciones?.cotizaciones.oficial} />
+              </Popup>
             </div>
             <div className="items-center justify-center mx-auto">
               <TimeAgo
