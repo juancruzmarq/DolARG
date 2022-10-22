@@ -27,40 +27,40 @@ export type Props = {
   oficialHistorico: historicoType;
 };
 
-export function LineChart({ oficialHistorico, blueHistorico }: Props) {
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: "top" as const,
-      },
+export const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: "top" as const,
     },
-  };
-  ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend
-  );
+  },
+};
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
-  const meses = [
-    "Enero",
-    "Febrero",
-    "Marzo",
-    "Abril",
-    "Mayo",
-    "Junio",
-    "Julio",
-    "Agosto",
-    "Septiembre",
-    "Octubre",
-    "Noviembre",
-    "Diciembre",
-  ];
+export const meses = [
+  "Enero",
+  "Febrero",
+  "Marzo",
+  "Abril",
+  "Mayo",
+  "Junio",
+  "Julio",
+  "Agosto",
+  "Septiembre",
+  "Octubre",
+  "Noviembre",
+  "Diciembre",
+];
 
+export function LineChart({ oficialHistorico, blueHistorico }: Props) {
   const labels = oficialHistorico.meses.map((mes) => {
     return meses[parseInt(mes.mes) - 1] + " " + mes.anio;
   });
@@ -70,9 +70,7 @@ export function LineChart({ oficialHistorico, blueHistorico }: Props) {
     datasets: [
       {
         label: "Dolar Oficial",
-        data: oficialHistorico.meses.map((mes) => {
-          return mes.valor;
-        }),
+        data: oficialHistorico.meses.map((mes) => mes.valor),
         borderColor: "#333d29",
         backgroundColor: "#333d29",
         strokeColor: "rgba(220,220,220,0.8)",
