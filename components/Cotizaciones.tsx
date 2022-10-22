@@ -6,6 +6,7 @@ import { CotizacionType } from "./Cotizacion";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import Calculadora from "./Calculadora";
+import { historicoType } from "./LineChart";
 
 export type CotizacionesType = {
   cotizaciones: {
@@ -26,6 +27,8 @@ export type CotizacionesType = {
     bancor: CotizacionType;
     comafi: CotizacionType;
     chaco: CotizacionType;
+    oficialHistorico: historicoType;
+    blueHistorico: historicoType;
   };
 };
 

@@ -3,6 +3,7 @@ import Head from "next/head";
 import Cotizaciones from "../components/Cotizaciones";
 import Header from "../components/Header";
 import { CotizacionesType } from "../components/Cotizaciones";
+import LineChart from "../components/LineChart";
 
 export default function Home(cotizaciones: CotizacionesType) {
   console.log(cotizaciones);
@@ -22,6 +23,17 @@ export default function Home(cotizaciones: CotizacionesType) {
       {/* Cotizaciones */}
       <section>
         <Cotizaciones cotizaciones={cotizaciones} />
+      </section>
+
+      {/* LineChart */}
+      <section>
+        <h1 className="text-center mx-3 text-xl sm:text-3xl text-[#e7e9e4] font-bold">
+          Historico de cotizaciones
+        </h1>
+        <LineChart
+          blueHistorico={cotizaciones.cotizaciones.blueHistorico}
+          oficialHistorico={cotizaciones.cotizaciones.oficialHistorico}
+        />
       </section>
     </div>
   );
@@ -119,6 +131,16 @@ export async function getStaticProps() {
 
   const chaco = await res18.json();
 
+  const res19 = await fetch(
+    "https://api-dolar-argentina.herokuapp.com/api/evolucion/dolaroficial"
+  );
+  const oficialHistorico = await res19.json();
+
+  const res20 = await fetch(
+    "https://api-dolar-argentina.herokuapp.com/api/evolucion/dolarblue"
+  );
+  const blueHistorico = await res20.json();
+
   const cotizaciones = {
     oficial,
     blue,
@@ -138,8 +160,9 @@ export async function getStaticProps() {
     bancor,
     comafi,
     chaco,
+    oficialHistorico,
+    blueHistorico,
   };
-  console.log(cotizaciones);
   return {
     props: { cotizaciones },
   };

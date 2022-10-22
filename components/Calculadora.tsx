@@ -31,7 +31,7 @@ const Calculadora = ({ cotizacion }: Props) => {
     <div className="grid grid-rows-3 bg-[#333d29] h-[200px] items-center justify-center p-2 bg-gradient-to-t  drop-shadow-2xl from-[#718355] to-[#87986A]">
       <div className="justify-center items-center">
         <h1 className="text-white font-semibold text-[13px] text-center mb-1">
-          Ingrese monto en pesos
+          Ingrese monto
         </h1>
         <input
           min={0}
