@@ -22,31 +22,30 @@ export type historicoType = {
   meses: valorType[];
 };
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
-
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: "top" as const,
-    },
-  },
-};
-
 export type Props = {
   blueHistorico: historicoType;
   oficialHistorico: historicoType;
 };
 
 export function LineChart({ oficialHistorico, blueHistorico }: Props) {
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top" as const,
+      },
+    },
+  };
+  ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+  );
+
   const meses = [
     "Enero",
     "Febrero",
