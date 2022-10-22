@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import Head from "next/head";
 import Cotizaciones from "../components/Cotizaciones";
 import Header from "../components/Header";
@@ -6,7 +5,6 @@ import { CotizacionesType } from "../components/Cotizaciones";
 import LineChart from "../components/LineChart";
 
 export default function Home(cotizaciones: CotizacionesType) {
-  console.log(cotizaciones);
   return (
     <div>
       <Head>
