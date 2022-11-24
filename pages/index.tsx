@@ -23,8 +23,8 @@ export default function Home(cotizaciones: CotizacionesType) {
         <Cotizaciones cotizaciones={cotizaciones} />
       </section>
 
-      {/* LineChart */}
-      {/* <section>
+      {/* LineChart
+      <section>
         <h1 className="text-center mx-3 text-xl sm:text-3xl text-[#e7e9e4] font-bold">
           Historico de cotizaciones
         </h1>

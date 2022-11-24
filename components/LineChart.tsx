@@ -33,6 +33,10 @@ export const options = {
     legend: {
       position: "top" as const,
     },
+    title: {
+      display: false,
+      text: "Historico de cotizaciones",
+    },
   },
 };
 ChartJS.register(
