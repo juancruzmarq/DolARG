@@ -37,7 +37,7 @@ export default function Home(cotizaciones: CotizacionesType) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await fetch(
     "https://api-dolar-argentina.herokuapp.com/api/dolaroficial"
   );
